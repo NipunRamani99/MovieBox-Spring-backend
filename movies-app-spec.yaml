@@ -1,0 +1,30 @@
+alerts:
+  - rule: DEPLOYMENT_FAILED
+domains:
+  - domain: moviebox.spring.nipunramani.com
+    type: PRIMARY
+features:
+  - enable-kata-build
+name: moviebox-spring
+region: nearest available
+services:
+  - cors:
+      allow_origins:
+        - prefix: localhost:3000
+    dockerfile_path: Dockerfile
+    envs:
+      - key: HUGO_VERSION
+        scope: RUN_AND_BUILD_TIME
+        value: 0.81.0
+    github:
+      branch: main
+      deploy_on_push: true
+      repo: NipunRamani99/MovieBox-Spring-backend
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    name: moviebox-spring-backend
+    routes:
+      - path: /
+      - path: /api/v1/movies
+      - path: /api/v1/movies/
