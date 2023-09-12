@@ -14,7 +14,7 @@ import java.util.logging.Level;
 
 @RestController
 @RequestMapping("/api/v1/movies")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000","https://main--super-llama-3d0b55.netlify.app/"})
 @Log
 public class MovieController {
 
